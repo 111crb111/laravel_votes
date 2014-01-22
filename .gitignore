@@ -1,9 +1,20 @@
 # MY
 
 /*
+*.*
+!*.php
+server.php
+!*.js
 
-!/app/models/*
-!/app/views/*
-!/app/controllers/*
-!/app/routes.php
-!/public/js/*
+/app/storage/
+/app/config/
+/app/lang/
+/app/start/
+/app/tests/
+
+!/app/
+!/public/
+#!/app/views/*
+#!/app/controllers/*
+#!/app/routes.php
+#!/public/js/*

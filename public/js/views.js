@@ -38,13 +38,26 @@ App.Views.addVote = Backbone.View.extend({
 
 		console.log(this.collection);
 	},
+	toggleDelBtn: function(){
+			var remove_icons = $('.remove_variant');
+			if(remove_icons.length > 2){
+				remove_icons.removeClass('hide');
+			}
+			else {
+				remove_icons.addClass('hide');
+			}
+
+	},
 	add_variant: function(){
-		console.log('add_variant');
-		var variant_template = '<div><input type="text" class="variant"><span class="remove_variant icon-remove-sign"></span></div>';
+		var variant_counter = $('.variant').length + 1;
+		var variant_template = '<div class="input-append"><div><input type="text" class="variant" placeholder="Вариант ' + variant_counter + '"><button class="btn hide remove_variant"><span class="icon-remove-sign"></span></button></div></div>';
 		$(variant_template).appendTo('#variants');
+
+		this.toggleDelBtn();
 	},
 	remove_variant: function(e){
 		e.target.parentNode.remove();
+		this.toggleDelBtn();
 	},
 	show_form: function(){
 		$("add_vote").modal();

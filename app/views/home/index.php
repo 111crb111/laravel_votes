@@ -10,6 +10,9 @@
 		#add_variant{
 			margin: 10px;
 		}
+		.input-append{
+			display: block !important;
+		}
 		.remove_variant{
 			margin: 0px 5px;
 		}
@@ -29,28 +32,38 @@
 
 
 
-	<div id="add_vote" class="modal hide fade">
+	<div id="add_vote" class="modal hide fade control-group">
 		<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 			<h1>Создать голосование</h1>
 		</div>
 		<div class="modal-body">
-			<form id="add_vote_form" class="form-actions">
+			<form id="add_vote_form" class="form-vertical">
 				<div>
-					<label>Название</label>
-					<input type="text" id="name">
+					<input type="text" id="name" placeholder="Название">
 				</div>
 				<div>
-					<label>Вопрос</label>
-					<input type="text" id="question">
+					<input type="text" id="question" placeholder="Вопрос">
 				</div>
 				<div id="variants">
-					<label>Варианты</label>
-					<div id="add_variant" class="btn">Добавить вариант</div>
-					<div><input type="text" class="variant"><span class="remove_variant icon-remove-circle"></span></div>
-					<div><input type="text" class="variant"><span class="remove_variant icon-remove-sign"></span></div>
+					<div id="add_variant" class="btn">Добавить вариант</div><br>
+					<div class="input-append">
+						<div><input type="text" class="variant" placeholder="Вариант 1"><button class="btn hide remove_variant"><span class="icon-remove-sign"></span></button></div>
+					</div>
+					<div class="input-append">
+						<div><input type="text" class="variant" placeholder="Вариант 2"><button class="btn hide remove_variant"><span class="icon-remove-sign"></span></button></div>
+					</div>
+					<!-- ЛУЫЧШЕ СДЕЛАТЬ ШАБЛОНАМЫ -->
+					<div class="alert alert-error hide" id="add_vote_error">
+					    <a class="close">×</a>
+						<p><strong>Ошибка!</strong> Все поля должны быть заполнены!</p>
+					</div>
+					<div class="alert alert-success hide" id="add_vote_success">
+					    <a class="close">×</a>
+						<p><strong>Поздравляем!</strong> Голосование успешно создано!</p>
+					</div>
 				</div>
-				<div>
+				<div class="">
 					<input type="submit" class="btn btn-primary btn-large" value="Добавить голосование">
 				</div>
 			</form>
