@@ -3,6 +3,11 @@
 		public $table = 'votes';
 		//public static $timestamps = false;
 		
+		public static function getAllVotes(){
+			$all_votes = Vote::all();
+			return $all_votes;
+		}
+
 		public static function createVote($input){
 			$vote = new Vote();
 

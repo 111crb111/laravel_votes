@@ -4,8 +4,8 @@
 
 		
 		public function getVotes(){
-			$fetched_votes = Vote::all();
-			return json_encode($fetched_votes);
+			$fetched_votes = Vote::getAllVotes();
+			return $fetched_votes;
 		}
 		public function createVote(){
 			

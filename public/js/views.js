@@ -5,15 +5,48 @@
 App.Views.App = Backbone.View.extend({
 	initialize: function(){
 		var addVote = new App.Views.addVote({ collection: App.votes });
+
+		var allVotes = new App.Views.Votes({ collection: App.votes }).render();
+		console.log(allVotes);
+		$('#votes_table').append(allVotes.el);
 	}
 });
 
-// Add Vote View
+// allVotes View
+
+App.Views.Votes = Backbone.View.extend({
+	tagName: 'tbody',
+
+	render: function(){
+		this.collection.each(this.addOne, this);
+
+		return this;
+	},
+	addOne: function(vote){
+		var singleVote = new App.Views.Vote({ model: vote });
+		console.log(singleVote.render().el);
+		this.$el.append( singleVote.render().el );
+	}
+});
+
+// Single Vote View
+
+App.Views.Vote = Backbone.View.extend({
+	tagName: 'tr',
+	template: _.template($('#votes_tr_tpl').html()),
+
+	render: function(){
+		this.$el.html( this.template( this.model.toJSON() ) );
+		return this;
+	}
+});
+
+// AddVote View
 
 App.Views.addVote = Backbone.View.extend({
 	el: '#add_vote_form',
 	initialize: function(){
-		console.log('INIT');
+
 	},
 	events: {
 		'submit' : 'add_vote',
@@ -36,7 +69,6 @@ App.Views.addVote = Backbone.View.extend({
 			variants: variants
 		});
 
-		console.log(this.collection);
 	},
 	toggleDelBtn: function(){
 			var remove_icons = $('.remove_variant');
@@ -60,6 +92,6 @@ App.Views.addVote = Backbone.View.extend({
 		this.toggleDelBtn();
 	},
 	show_form: function(){
-		$("add_vote").modal();
+		location.href = '#addvote';
 	}
 });
