@@ -24,7 +24,6 @@ App.Views.Votes = Backbone.View.extend({
 	},
 	addOne: function(vote){
 		var singleVote = new App.Views.Vote({ model: vote });
-		console.log(singleVote.render().el);
 		this.$el.append( singleVote.render().el );
 	}
 });
@@ -46,7 +45,7 @@ App.Views.Vote = Backbone.View.extend({
 App.Views.addVote = Backbone.View.extend({
 	el: '#add_vote_form',
 	initialize: function(){
-
+		console.log('INIT ADD VOTE');
 	},
 	events: {
 		'submit' : 'add_vote',
@@ -68,7 +67,6 @@ App.Views.addVote = Backbone.View.extend({
 			question: this.$('#question').val(),
 			variants: variants
 		});
-
 	},
 	toggleDelBtn: function(){
 			var remove_icons = $('.remove_variant');

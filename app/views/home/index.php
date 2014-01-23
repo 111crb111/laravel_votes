@@ -87,7 +87,7 @@
 			</div>
 			<div id="push"></div>
 		</div>
-		
+
 	</div>
 	<footer>
 		<div class="container">
@@ -117,7 +117,7 @@
 						<input type="text" id="question" placeholder="Вопрос">
 					</div>
 					<div id="variants">
-						<div id="add_variant" class="btn">Добавить вариант</div><br>
+						<a id="add_variant" class="btn">Добавить вариант</a><br>
 						<div class="input-append">
 							<div><input type="text" class="variant" placeholder="Вариант 1"><button class="btn hide remove_variant"><span class="icon-remove-sign"></span></button></div>
 						</div>
@@ -134,9 +134,8 @@
 							<p><strong>Поздравляем!</strong> Голосование успешно создано!</p>
 						</div>
 					</div>
-					<div class="">
 						<input type="submit" class="btn btn-primary btn-large" value="Добавить голосование">
-					</div>
+
 				</form>
 			</div>
 		</div>
