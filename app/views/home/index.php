@@ -16,7 +16,9 @@
 		.remove_variant{
 			margin: 0px 5px;
 		}      
-
+		#page_content{
+			text-align: center !important;
+		}
 
 
 		/*footer fix*/
@@ -37,6 +39,7 @@
 		/* Set the fixed height of the footer here */
 		#push, footer {
 			height: 60px;
+			display: block !important;
 		}
 		footer {
 			background-color: #f5f5f5;
@@ -77,7 +80,7 @@
 				<table id="votes_table" class="table-striped">
 					<thead>
 						<tr>
-							<th>#</th>
+							<th>id</th>
 							<th>Название</th>
 							<th>Вопрос</th>
 							<th>кнопка</th>

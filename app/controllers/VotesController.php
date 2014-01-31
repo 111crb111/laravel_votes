@@ -4,8 +4,20 @@
 
 		
 		public function getVotes(){
-			$fetched_votes = Vote::getAllVotes();
+
+			$input = Input::all();
+			if($input){
+				$input = json_encode($input);
+				$input = json_decode($input);
+				if($input->limit){
+						$fetched_votes = Vote::getVotes($input->limit);
+				}
+				return $fetched_votes;		
+			}
+
+			$fetched_votes = Vote::getVotes();
 			return $fetched_votes;
+
 		}
 		public function createVote(){
 			

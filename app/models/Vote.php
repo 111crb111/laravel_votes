@@ -3,7 +3,12 @@
 		public $table = 'votes';
 		//public static $timestamps = false;
 		
-		public static function getAllVotes(){
+		public static function getVotes($limit = false, $fromId = 0){
+			if($limit){
+				$query = Vote::where('id','>',$fromId)->take($limit)->get();
+				return $query;
+			}
+
 			$all_votes = Vote::all();
 			return $all_votes;
 		}
