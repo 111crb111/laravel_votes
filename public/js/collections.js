@@ -2,5 +2,5 @@
 
 App.Collections.Votes = Backbone.Collection.extend({
 	model: App.Models.Vote,
-	url: 'votes'
+	url: 'ajax_votes'
 });

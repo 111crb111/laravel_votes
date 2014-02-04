@@ -66,6 +66,8 @@
 					<a class="brand" href="#">Имя проекта</a>
 					<div class="nav-collapse collapse">
 						<a href="#addvote" class="btn">Add vote</a>
+						<a href="#votes" class="btn">Голосования</a>
+						<a href="" class="btn">Главная</a>
 					</div>
 				</div>
 			</div>
@@ -73,7 +75,10 @@
 
 		<!-- Begin page content -->
 		<div id="page_content" class="container">
-			<div id="index_content">
+
+
+		<!-- Секция отображения всех голосований -->
+			<section id="votes_page">
 				<div class="page-header">
 					<h1>Голосования</h1>
 				</div>
@@ -87,26 +92,11 @@
 						</tr>
 					</thead>
 				</table>
-			</div>
-			<div id="push"></div>
-		</div>
+			</section>
 
-	</div>
-	<footer>
-		<div class="container">
-			<br/>
-			<p class="pull-right muted credit">C.R.B. &copy; 2014</p>
-		</div>
-	</footer>
 
-	<script type="text/template" id="votes_tr_tpl">
-		<td><%= id %></td>
-		<td><%= name %></td>
-		<td><%= question %></td>
-		<td><a href="#" role="button" class="btn">Открыть</a></td>
-	</script>
-
-	<script type="text/template" id="addvote_tpl">
+	<!-- Секция добавления голосования -->
+	<section id="addvote_tpl">
 		<div id="add_vote" class="control-group">
 			<div class="header">
 				<h1>Создать голосование</h1>
@@ -127,7 +117,7 @@
 						<div class="input-append">
 							<div><input type="text" class="variant" placeholder="Вариант 2"><button class="btn hide remove_variant"><span class="icon-remove-sign"></span></button></div>
 						</div>
-						<!-- ЛУЫЧШЕ СДЕЛАТЬ ШАБЛОНАМЫ -->
+						<!-- ПЕЯРЕДЕЛАТЬ СООБЩЕНИЯ -->
 						<div class="alert alert-error hide" id="add_vote_error">
 						    <a class="close">×</a>
 							<p><strong>Ошибка!</strong> Все поля должны быть заполнены!</p>
@@ -142,6 +132,42 @@
 				</form>
 			</div>
 		</div>
+	</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<div id="push"></div>
+		</div>
+
+	</div>
+	<footer>
+		<div class="container">
+			<br/>
+			<p class="pull-right muted credit">C.R.B. &copy; 2014</p>
+		</div>
+	</footer>
+
+	<script type="text/template" id="votes_tr_tpl">
+		<td><%= id %></td>
+		<td><%= name %></td>
+		<td><%= question %></td>
+		<td><a href="#" role="button" class="btn">Открыть</a></td>
 	</script>
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>

@@ -20,8 +20,8 @@ Route::controller('/v','VotesController');
 
 // 	return Children::all();
 // });
-Route::get('votes', 'VotesController@getVotes');
-Route::post('votes', 'VotesController@createVote');
+Route::get('ajax_votes', 'VotesController@getVotes');
+Route::post('ajax_votes', 'VotesController@createVote');
 Route::get('/', function(){
 
 	return View::make('home.index');

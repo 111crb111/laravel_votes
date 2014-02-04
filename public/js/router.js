@@ -3,22 +3,31 @@
 App.Router = Backbone.Router.extend({
 	routes: {
 		'': 'index',
-		'addvote': 'addvote'
+		'addvote': 'addvote',
+		'votes': 'votes',
 	},
 	index: function(){
 		App.initialize_collection();
+		console.log('index_ROUTE');
 		
 		$('#page_content > *').hide();
-		$('#index_content').show();
-
-		App.Napolnity_colekciyu(1,2);
+		//$('section#index_page').show();
 	},
 	addvote: function(){
 		App.initialize_collection();
+		console.log('addvote_ROUTE');
 
-		var template = _.template($('#addvote_tpl').html());
 		$('#page_content > *').hide();
-		$('#page_content').append(template());
+		$('section#addvote_tpl').show();
+
+	},
+	votes: function(){
+		App.initialize_collection();
+
+		console.log('votes_ROUTE');
+
+		$('#page_content > *').hide();
+		$('#votes_page').show()
 
 	}
 });

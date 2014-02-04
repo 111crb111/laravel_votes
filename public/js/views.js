@@ -7,7 +7,7 @@ App.Views.App = Backbone.View.extend({
 		var addVote = new App.Views.addVote({ collection: App.votes });
 
 		var allVotes = new App.Views.Votes({ collection: App.votes }).render();
-		console.log(allVotes);
+
 		$('#votes_table').append(allVotes.el);
 	}
 });
@@ -45,13 +45,12 @@ App.Views.Vote = Backbone.View.extend({
 App.Views.addVote = Backbone.View.extend({
 	el: '#add_vote_form',
 	initialize: function(){
-		console.log('INIT ADD VOTE');
+		console.log(this.el);
 	},
 	events: {
 		'submit' : 'add_vote',
 		'click #add_variant' : 'add_variant',
 		'click .remove_variant' : 'remove_variant',
-		'click #add_vote': 'show_form'
 	},
 
 	add_vote: function(e){
@@ -79,6 +78,7 @@ App.Views.addVote = Backbone.View.extend({
 
 	},
 	add_variant: function(){
+		console.log('add_variant_btn_click');
 		var variant_counter = $('.variant').length + 1;
 		var variant_template = '<div class="input-append"><div><input type="text" class="variant" placeholder="Вариант ' + variant_counter + '"><button class="btn hide remove_variant"><span class="icon-remove-sign"></span></button></div></div>';
 		$(variant_template).appendTo('#variants');
@@ -89,7 +89,4 @@ App.Views.addVote = Backbone.View.extend({
 		e.target.parentNode.remove();
 		this.toggleDelBtn();
 	},
-	show_form: function(){
-		location.href = '#addvote';
-	}
 });
